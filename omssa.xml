@@ -1,0 +1,36 @@
+<tool id="proteomics_search_omssa_1" name="OMSSA MSMS Search" version="1.0.0">
+  <description>Run an OMSSA Search on a File</description>
+
+<!-- #{omssa_bin} -d #{current_db} -to #{fragment_tol} #{search_type_option} -te #{search_tool.precursor_tol}  -v #{search_tool.missed_cleavages} -fm #{input_path} -op #{output_path} -he 100000 -w -->
+<!-- -->
+  <command interpreter="ruby">omssa_wrapper.rb -d $database $glyco $maldi -f $fragment_ion_tol $input_file -o $output -r</command>
+  <inputs>
+	
+    <param name="input_file" type="data" format="mgf" multiple="false" label="MSMS File" help="An mgf file with MS/MS data"/>
+	<param name="database" type="select" format="text" >
+	    <label>Database</label>
+		<option value="spall">Swissprot</option>
+	    <option value="sphuman">Swissprot Human</option>
+	    <option value="sptrhuman">Combined Swissprot/TRembl Human</option>
+		<option value="spmouse">Swissprot Mouse</option>
+		<option value="plasmodb_pfalciparum">PlasmboDB (falciparum)</option>
+		<option value="plasmodb_pfalciparum_sphuman">Combined PlasmboDB (falciparum) and Swissprot Human</option>
+		<option value="plasmodb_pfalciparum_sp">Combined PlasmboDB (falciparum) and Swissprot</option>
+	</param>
+	
+
+	<param name="glyco" type="boolean" label="Require deamidated-N (glycocapture data)" truevalue="-g" falsevalue=""/>
+	<param name="maldi" type="boolean" label="Is the data from a MALDI instrument" truevalue="-l" falsevalue=""/>
+	<param name="fragment_ion_tol" label="Fragment Ion Tolerance in Daltons" type="float" value="0.65" min="0" max="10000" help="Fragment ion tolerance in Daltons"/>
+
+
+  </inputs>
+  <outputs>
+    <data format="raw_pepxml" name="output" metadata_source="input_file" label="omssa_vs_${database}.${input_file.display_name}.pepXML"/>
+  </outputs>
+
+  <help>
+	Run an OMSSA Search
+  </help>
+
+</tool>

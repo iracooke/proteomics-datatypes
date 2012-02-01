@@ -1,0 +1,20 @@
+<tool id="proteomics_convert_annotate_ids_1" name="Protein Prophet to Excel" version="1.0.0">
+  <description>Looks up metadata about identified proteins in a set of search results. Metadata is obtained from the uniprot database and results are written to an excel spreadsheet.</description>
+
+
+<!-- Note .. the input file is assumed to be the first argument -->
+  <command interpreter="ruby">annotate_ids_wrapper.rb $input_file -o $output -I "protXML" -r</command>
+  <inputs>
+	
+    <param name="input_file" type="data" format="protxml" multiple="false" label="Search Results" help="Typically outputs from Protein Prophet"/>
+
+  </inputs>
+  <outputs>
+    <data format="xls" name="output" metadata_source="input_file" label="Annotated.${input_file.display_name}.xls"/>
+  </outputs>
+
+  <help>
+	Annotate results from peptide prophet
+  </help>
+
+</tool>

@@ -1,0 +1,30 @@
+<tool id="mascot_to_pepxml_1" name="Mascot to pepXML" version="1.0.0">
+  <description>Converts a mascot results file to pepXML</description>
+
+
+<!-- Note .. the input file is assumed to be the first argument -->
+<command interpreter="ruby">mascot_to_pepxml_wrapper.rb $input_file -o $output -d $database</command>
+<inputs>
+
+	<param name="input_file" type="data" format="mascotdat" multiple="false" label="Input File" help="Mascot results file"/>
+	<param name="database" type="select" format="text" >
+	    <label>Database</label>
+		<option value="spall">Swissprot</option>
+	    <option value="sphuman">Swissprot Human</option>
+	    <option value="sptrhuman">Combined Swissprot/TRembl Human</option>
+		<option value="spmouse">Swissprot Mouse</option>
+		<option value="plasmodb_pfalciparum">PlasmboDB (falciparum)</option>
+		<option value="plasmodb_pfalciparum_sphuman">Combined PlasmboDB (falciparum) and Swissprot Human</option>
+	</param>
+	
+
+</inputs>
+<outputs>
+	<data format="raw_pepxml" metadata_source="input_file" name="output" label="${input_file.display_name}.pepXML" />
+</outputs>
+
+<help>
+	Convert mascot results to pepXML
+</help>
+
+</tool>

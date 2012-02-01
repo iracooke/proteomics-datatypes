@@ -1,0 +1,14 @@
+<display id="proteomics_protxml" version="1.0.0" name="view list of">
+    <link id="protxml" name="protXML results">
+        <url target_frame="galaxy_main">http://${galaxy_url.qp}:8500/init_local?file=${encoded_filename.qp}&amp;type=protxml</url>
+        <param type="data" name="prot_file" viewable="False" format="protXML"/>
+        <param type="data" dataset="prot_file" name="protxml_file" format="protXML" viewable="False" />
+        <param type="template" name="encoded_filename" strip="True" >
+            #import binascii
+            ${binascii.hexlify( $protxml_file.file_name )}
+        </param>
+        <param type="template" name="galaxy_url" strip="True" >
+                ${BASE_URL.split(":")[1][2:]}
+        </param>
+    </link>
+</display>

@@ -1,0 +1,14 @@
+<display id="proteomics_pepxml" version="1.0.0" name="view list of">
+    <link id="pepxml" name="pepXML results">
+        <url target_frame="galaxy_main">http://${galaxy_url.qp}:8500/init_local?file=${encoded_filename.qp}&amp;type=pepxml</url>
+        <param type="data" name="pep_file" viewable="False" format="pepXML"/>
+        <param type="data" dataset="pep_file" name="pepxml_file" format="pepXML" viewable="False" />
+        <param type="template" name="encoded_filename" strip="True" >
+            #import binascii
+            ${binascii.hexlify( $pepxml_file.file_name )}
+        </param>
+        <param type="template" name="galaxy_url" strip="True" >
+                ${BASE_URL.split(":")[1][2:]}
+        </param>
+    </link>
+</display>

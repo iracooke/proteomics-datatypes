@@ -1,0 +1,22 @@
+<tool id="proteomics_search_protein_prophet_1" name="Protein Prophet" version="1.0.0">
+  <description>Calculate Protein Prophet statistics on search results</description>
+
+
+<!-- Note .. the input file is assumed to be the first argument -->
+  <command interpreter="ruby">protein_prophet_wrapper.rb $input_file -o "protein_prophet_results.prot.xml" -r $glyco </command>
+  <inputs>
+	
+    <param name="input_file" type="data" format="pepxml" multiple="false" label="Peptide Prophet Results" help="These files will typically be outputs from peptide prophet or interprophet"/>
+
+	<param name="glyco" type="boolean" label="Expect true positives to have a glycocapture motif" truevalue="-g" falsevalue=""/>
+
+  </inputs>
+  <outputs>
+    <data format="protxml" name="output" metadata_source="input_file" label="protein_prophet.${input_file.display_name}.protXML" from_work_dir="protein_prophet_results.prot.xml"/>
+  </outputs>
+
+  <help>
+	Run Peptide Prophet
+  </help>
+
+</tool>

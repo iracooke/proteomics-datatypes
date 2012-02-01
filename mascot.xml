@@ -1,0 +1,107 @@
+<tool id="proteomics_search_mascot_1" name="Mascot MSMS Search" version="1.0.0">
+	<description>Run a Mascot Search on a File</description>
+
+
+	<command interpreter="ruby">mascot_wrapper.rb -d $database -f $fragment_ion_tol -S $server $input_file -o $output -r
+		## Variable Mods
+		--var-mods='"
+		#for $variable_mod in $variable_mods:
+		${variable_mod.var_mod},
+		#end for
+		"'
+				
+		## Fixed Mods
+		--fix-mods='"
+		#for $fixed_mod in $fixed_mods:
+		${fixed_mod.fix_mod},	
+		#end for
+		"'
+		
+		--allowed-charges=$allowed_charges	--enzyme=$enzyme --instrument=$instrument --precursor-ion-tol-units=$precursor_tolu --email=$email --username=$username -v $missed_cleavages
+		
+	</command>
+
+	<inputs>
+	
+    <param name="input_file" type="data" format="mgf" multiple="false" label="MSMS File" help="A Mascot Generic Format file with MSMS Spectra"/>
+
+	<param name="database" type="select" format="text" >
+	    <label>Database</label>
+		<option value="SPAll">Swissprot</option>
+	    <option value="SPHuman">Swissprot Human</option>
+	    <option value="SPTRHuman">Combined Swissprot/TRembl Human</option>
+		<option value="SPMouse">Swissprot Mouse</option>
+		<option value="PlasmoDB_PFalcip">PlasmboDB (falciparum)</option>
+		<option value="PlasmoDB_PFalc_SPHu">Combined PlasmboDB (falciparum) and Swissprot Human</option>
+		<option value="PlasmoDB_PFalc_SP">Combined PlasmboDB (falciparum) and Swissprot</option>
+	</param>
+
+
+	<repeat name="variable_mods" title="Variable Modification">
+		<param name="var_mod" format="text" type="select" label="" help="">
+			<options from_file="mascot_mods.loc">
+			     <column name="name" index="2" />
+				<column name="value" index="0" />
+			</options>
+		</param>		
+	</repeat>
+	
+	<repeat name="fixed_mods" title="Fixed Modification">
+		<param name="fix_mod" format="text" type="select" label="" help="">
+			<options from_file="mascot_mods.loc">
+			     <column name="name" index="2" />
+				<column name="value" index="0" />
+			</options>
+		</param>		
+	</repeat>
+	
+	<param name="missed_cleavages" type="select" format="text">
+		<label>Missed Cleavages Allowed</label>
+	    <option value="0">0</option>		
+		<option value="1">1</option>
+		<option value="2">2</option>
+	</param>
+	
+	<param name="enzyme" type="select" format="text">
+	    <label>Enzyme</label>
+	    <option value="Trypsin">Trypsin</option>		
+	</param>
+	
+	<param name="allowed_charges" type="select" format="text">
+	    <label>Peptide Charge</label>
+	    <option value="1+, 2+ and 3+">1+,2+ and 3+</option>		
+		<option value="1+">1+</option>
+	</param>
+	
+	<param name="instrument" type="select" format="text">
+	    <label>Instrument</label>
+	    <option value="MALDI-TOF-TOF">MALDI-TOF-TOF</option>		
+		<option value="ESI-QUAD-TOF">ESI-QUAD-TOF</option>
+		<option value="ESI-TRAP">ESI-TRAP</option>
+	</param>
+	
+	<param name="fragment_ion_tol" label="Fragment Ion Tolerance in Daltons" type="float" value="0.65" min="0" max="10000" help="Fragment ion tolerance in Daltons"/>
+
+	<param name="precursor_ion_tol" label="Precursor Ion Tolerance (Da or ppm)" type="float" value="100" min="0" max="10000" help="Precursor ion tolerance"/>
+	<param name="precursor_tolu" type="select" format="text">
+	    <label>Precursor Ion Tolerance Units</label>
+	    <option value="ppm">ppm</option>		
+		<option value="Da">Da</option>
+	</param>
+
+	<param name="server" type="text" label="URL to Mascot Server cgi " size="60" value="http://131.172.141.56/mascot/cgi"/>
+	
+	<param name="email" type="text" label="Email " size="60" value=""/>
+	
+	<param name="username" type="text" label="Username" size="60" value=""/>	
+
+  </inputs>
+  <outputs>
+    <data format="mascotdat" name="output" metadata_source="input_file" label="mascot_vs_${database}.${input_file.display_name}.mascotdat"/>
+  </outputs>
+
+  <help>
+	Run a Mascot Search
+  </help>
+
+</tool>

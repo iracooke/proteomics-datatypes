@@ -1,0 +1,31 @@
+<tool id="proteomics_search_tandem_1" name="X!Tandem MSMS Search" version="1.0.0">
+  <description>Run an OMSSA Search on a File</description>
+
+  <command interpreter="ruby">tandem_wrapper.rb -d $database $glyco $input_file -o $output -r</command>
+  <inputs>
+	
+    <param name="input_file" type="data" format="mzml" multiple="false" label="MSMS File" help="Files should be peak picked"/>
+	<param name="database" type="select" format="text" >
+	    <label>Database</label>
+		<option value="spall">Swissprot</option>
+	    <option value="sphuman">Swissprot Human</option>
+	    <option value="sptrhuman">Combined Swissprot/TRembl Human</option>
+		<option value="spmouse">Swissprot Mouse</option>
+		<option value="plasmodb_pfalciparum">PlasmboDB (falciparum)</option>
+		<option value="plasmodb_pfalciparum_sphuman">Combined PlasmboDB (falciparum) and Swissprot Human</option>
+		<option value="plasmodb_pfalciparum_sp">Combined PlasmboDB (falciparum) and Swissprot</option>
+	</param>
+
+	<param name="glyco" type="boolean" label="Require deamidated-N (glycocapture data)" truevalue="-g" falsevalue=""/>
+
+  </inputs>
+  <outputs>
+    <data format="raw_pepxml" name="output" metadata_source="input_file" label="X!Tandem_vs_${database}.${input_file.display_name}.pepXML"/>
+  </outputs>
+
+
+  <help>
+	Run an X!Tandem Search
+  </help>
+
+</tool>
