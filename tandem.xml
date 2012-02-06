@@ -1,7 +1,8 @@
 <tool id="proteomics_search_tandem_1" name="X!Tandem MSMS Search" version="1.0.0">
+	<requirements><requirement type="package">protk</requirement></requirements>
   <description>Run an OMSSA Search on a File</description>
 
-  <command interpreter="ruby">tandem_wrapper.rb -d $database $glyco $input_file -o $output -r</command>
+  <command interpreter="ruby">tandem_search.rb -d $database $glyco $input_file -o $output -r</command>
   <inputs>
 	
     <param name="input_file" type="data" format="mzml" multiple="false" label="MSMS File" help="Files should be peak picked"/>

@@ -1,0 +1,11 @@
+#This file lists the names of protein databases
+#
+# Entries should follow the be structured as follows
+# Display_name mascot_dbname dbkey
+#
+#
+Swissprot	spall_	SPAll	spall_
+Combined PlasmboDB (falciparum) and Swissprot Human	plasmodb_pfalciparum_sphuman_	PlasmoDB_PFalc_SPHu	plasmodb_pfalciparum_sphuman_
+Swissprot Human	sphuman_	SPHuman	sphuman_
+Combined Swissprot/TRembl Human	sptrhuman_	SPTRHuman	sptrhuman_
+Swissprot Mouse	spmouse_	SPMouse	spmouse_

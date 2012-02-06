@@ -1,26 +1,25 @@
 <tool id="mzml_to_mgf_1" name="MzML to mgf" version="1.0.0">
-  <description>Converts an mzML file to mgf suitable for searching</description>
+	<requirements>
+		<requirement type="package">protk</requirement>
+	</requirements>
+	
+	<description>Converts an mzML file to mgf suitable for searching</description>
 
+	<command>file_convert.rb $input_file -o $output $maldi</command>
 
-<!-- Note .. the input file is assumed to be the first argument -->
-<command interpreter="ruby">mzml_to_mgf_wrapper.rb $input_file -o $output $maldi</command>
+	<inputs>
 
+		<param name="input_file" type="data" format="mzml"  multiple="false" label="Input File" help="Line Spectra in mzML format"/>
+		<param name="maldi" type="boolean" label="Is the data from a MALDI instrument" truevalue="-l" falsevalue=""/>
 
-<inputs>
+	</inputs>
+	
+	<outputs>
+		<data format="mgf" name="output" metadata_source="input_file" label="${input_file.display_name}.mgf" />
+	</outputs>
 
-	<param name="input_file" type="data" format="mzml"  multiple="false" label="Input File" help="Line Spectra in mzML format"/>
-
-	<param name="maldi" type="boolean" label="Is the data from a MALDI instrument" truevalue="-l" falsevalue=""/>
-
-<!--	<param name="title" type="text" label="History Label for Output" value="Converted.mgf" size="20"/>-->
-
-</inputs>
-<outputs>
-	<data format="mgf" name="output" metadata_source="input_file" label="${input_file.display_name}.mgf" />
-</outputs>
-
-<help>
-	Convert line spectra to Mascot Generic Format
-</help>
+	<help>
+		Convert line spectra to Mascot Generic Format
+	</help>
 
 </tool>

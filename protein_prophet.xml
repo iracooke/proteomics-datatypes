@@ -1,4 +1,5 @@
 <tool id="proteomics_search_protein_prophet_1" name="Protein Prophet" version="1.0.0">
+	<requirements><requirement type="package">protk</requirement></requirements>
   <description>Calculate Protein Prophet statistics on search results</description>
 
 

@@ -1,4 +1,5 @@
 <tool id="proteomics_search_interprophet_1" name="InterProphet" version="1.0.0">
+	<requirements><requirement type="package">protk</requirement></requirements>
   <description>Combine Peptide Prophet results from multiple search engines</description>
 
 

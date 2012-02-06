@@ -1,9 +1,10 @@
 <tool id="proteomics_search_peptide_prophet_1" name="Peptide Prophet" version="1.0.0">
+	<requirements><requirement type="package">protk</requirement></requirements>
   <description>Calculate Peptide Prophet statistics on search results</description>
 
 
 <!-- Note .. the input file is assumed to be the first argument -->
-  <command interpreter="ruby">peptide_prophet_wrapper.rb $input_file -o "peptide_prophet_output.pep.xml" -r $glyco </command>
+  <command>peptide_prophet_wrapper.rb $input_file -o "peptide_prophet_output.pep.xml" -r $glyco </command>
   <inputs>
 	
     <param name="input_file" type="data" format="raw_pepxml" multiple="false" label="Raw Search Results" help="These files will typically be outputs from omssa or xtandem search tools"/>
