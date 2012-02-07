@@ -1,11 +1,8 @@
-require 'yaml'
 require 'optparse'
 require 'ostruct'
+require 'pathname'
 
 $VERBOSE=nil
-
-config_yml = YAML.load_file "#{File.dirname(__FILE__)}/../config.yml"
-throw "Unable to read the config file at #{File.dirname(__FILE__)}/../config.yml" unless config_yml!=nil
 
 
 @options = OpenStruct.new
@@ -33,20 +30,26 @@ end
 
 @option_parser.parse!
 
+
+wd= Dir.pwd
+
 original_input_files=ARGV
 cmd=""
 
 input_files=original_input_files.collect do |input|
 
   # We append ".pep.xml" to the input file name because interprophet can't handle anything else
-  # In order for this to work properly the file actually needs to be copied temporarily to the new .pep.xml location
+  # In order for this to work properly we need to create a symbolic link our working directory
   #
-  cmd << "/bin/cp #{input} #{input}.pep.xml; "
-  "#{input}.pep.xml"
+  original_input_path=Pathname.new("#{input}")
+  actual_input_path_string="#{wd}/#{original_input_path.basename}.pep.xml"
+
+  cmd << "ln -s #{input} #{actual_input_path_string};"
+  actual_input_path_string
 end
 
-
-cmd << "#{config_yml['protk_path']}/interprophet.rb"
+interprophet_path=%x[which interprophet.rb]
+cmd << interprophet_path.chomp
 
 input_files.each { |input|
   cmd << " #{input}"
@@ -54,12 +57,6 @@ input_files.each { |input|
 
 
 cmd << " -o #{@options.explicit_output} -r"
-
-# Clean up the .pep.xml input files which were used temporarily
-#
-input_files.each { |input_file|
-  cmd << "; /bin/rm #{input_file}"
-}
 
 %x[#{cmd}]
 

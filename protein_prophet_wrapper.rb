@@ -1,34 +1,31 @@
-require 'yaml'
+require 'pathname'
 
 $VERBOSE=nil
 
-config_yml = YAML.load_file "#{File.dirname(__FILE__)}/../config.yml"
-throw "Unable to read the config file at #{File.dirname(__FILE__)}/../config.yml" unless config_yml!=nil
+protein_prophet_path=%x[which protein_prophet.rb]
 
-# First argument is assumed to be the input file. 
-#
+# Second argument is the original input file name ... we'll change this below
 original_input_file=ARGV[0]
 
-# Before doing anything we append ".pep.xml" to the input file name because peptide prophet can't handle anything else
-# In order for this to work properly the file actually needs to be copied temporarily to the new .pep.xml location
-#
-cmd = "/bin/cp #{original_input_file} #{original_input_file}.pep.xml; "
+# Before doing anything we append create a link to the input file in our working dir with ".pep.xml" appended to the input 
+# name because peptide prophet can't handle anything else
 
-cmd << "#{config_yml['protk_path']}/protein_prophet.rb"
+wd= Dir.pwd
+
+original_input_path=Pathname.new("#{original_input_file}")
+actual_input_path_string="#{wd}/#{original_input_path.basename}.pep.xml"
+
+cmd = "ln -s #{original_input_file} #{actual_input_path_string};"
+
+cmd << protein_prophet_path.chomp
 
 
-ARGV[0]="#{original_input_file}.pep.xml"
+ARGV[0]="#{actual_input_path_string}"
 
 ARGV.each { |a| 
+    
   cmd << " #{a}" 
 }
-
-# Cleans up the .pep.xml input file which was used temporarily
-#
-cmd << "; /bin/rm #{original_input_file}.pep.xml"
-
-#p cmd
-
 
 %x[#{cmd}]
 

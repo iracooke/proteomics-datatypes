@@ -4,7 +4,7 @@
 
 
 <!-- Note .. the input file is assumed to be the first argument -->
-  <command interpreter="ruby">annotate_ids.rb $input_file -o $output -I "protXML" -r</command>
+  <command>annotate_ids.rb $input_file -o $output -I "protXML" -r</command>
   <inputs>
 	
     <param name="input_file" type="data" format="protxml" multiple="false" label="Search Results" help="Typically outputs from Protein Prophet"/>
