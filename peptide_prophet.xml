@@ -2,7 +2,7 @@
 	<requirements><requirement type="package">protk</requirement></requirements>
 	<description>Calculate Peptide Prophet statistics on search results</description>
 
-	<command interpreter="ruby">peptide_prophet_wrapper.rb ${input_file} -o "peptide_prophet_output.pep.xml" -r $glyco
+	<command interpreter="ruby">peptide_prophet_wrapper.rb ${output} ${input_file}  -r $glyco
 	</command>
 
 	<inputs>
@@ -13,7 +13,7 @@
 
   </inputs>
   <outputs>
-    <data format="peptideprophet_pepxml" name="output" metadata_source="input_file" label="peptide_prophet.${input_file.display_name}" from_work_dir="peptide_prophet_output.pep.xml"/>
+    <data format="peptideprophet_pepxml" name="output" metadata_source="input_file" label="peptide_prophet.${input_file.display_name}.pep.xml" from_work_dir="peptide_prophet_output.pep.xml"/>
   </outputs>
 
   <help>

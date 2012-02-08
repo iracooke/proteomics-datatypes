@@ -4,6 +4,8 @@ $VERBOSE=nil
 
 protein_prophet_path=%x[which protein_prophet.rb]
 
+actual_output_path_string=ARGV.shift
+
 # Second argument is the original input file name ... we'll change this below
 original_input_file=ARGV[0]
 
@@ -26,6 +28,10 @@ ARGV.each { |a|
     
   cmd << " #{a}" 
 }
+
+cmd << " -o protein_prophet_results.prot.xml"
+
+cmd << ";ruby -pi -e \"gsub('#{actual_input_path_string}', '#{original_input_file}.pep.xml')\" protein_prophet_results.prot.xml"
 
 %x[#{cmd}]
 

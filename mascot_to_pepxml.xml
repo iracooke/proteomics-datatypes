@@ -12,7 +12,7 @@
 	    <label>Database</label>
 		<options from_file="pepxml_databases.loc">
 			<column name="name" index="0" />
-			<column name="value" index="1" />
+			<column name="value" index="2" />
 		</options>
 	</param>
 	

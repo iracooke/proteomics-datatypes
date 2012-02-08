@@ -6,7 +6,7 @@
 <!-- Note .. the input file is assumed to be the first argument -->
   <command interpreter="ruby">
 
-	interprophet_wrapper.rb -o interprophet_output.pep.xml
+	interprophet_wrapper.rb $output
 
 	## Inputs.
 	${first_input}

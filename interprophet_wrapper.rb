@@ -1,40 +1,15 @@
-require 'optparse'
-require 'ostruct'
 require 'pathname'
 
 $VERBOSE=nil
 
-
-@options = OpenStruct.new
-@options.library = []
-@options.inplace = false
-@options.encoding = "utf8"
-@options.transfer_type = :auto
-@options.verbose = false
-
-@option_parser=OptionParser.new do |opts|
-  
-  
-  
-  @options.explicit_output = nil
-  opts.on( '-o', '--output out', 'An explicitly named output file.' ) do |out|
-    @options.explicit_output = out
-  end  
-   
-  opts.on( '-h', '--help', 'Display this screen' ) do
-    puts opts
-    exit
-  end
-        
-end
-
-@option_parser.parse!
-
+actual_output_path_string=ARGV[0]
 
 wd= Dir.pwd
 
-original_input_files=ARGV
+original_input_files=ARGV.drop(1)
 cmd=""
+
+output_substitution_cmds=""
 
 input_files=original_input_files.collect do |input|
 
@@ -45,6 +20,7 @@ input_files=original_input_files.collect do |input|
   actual_input_path_string="#{wd}/#{original_input_path.basename}.pep.xml"
 
   cmd << "ln -s #{input} #{actual_input_path_string};"
+  output_substitution_cmds << "ruby -pi -e \"gsub('#{actual_input_path_string}', '#{input}.pep.xml')\" interprophet_output.pep.xml;"
   actual_input_path_string
 end
 
@@ -56,7 +32,11 @@ input_files.each { |input|
 }
 
 
-cmd << " -o #{@options.explicit_output} -r"
+cmd << " -o interprophet_output.pep.xml -r"
+
+cmd << ";#{output_substitution_cmds}"
+
+p cmd
 
 %x[#{cmd}]
 

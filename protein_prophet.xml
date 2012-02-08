@@ -4,7 +4,7 @@
 
 
 <!-- Note .. the input file is assumed to be the first argument -->
-  <command interpreter="ruby">protein_prophet_wrapper.rb $input_file -o "protein_prophet_results.prot.xml" -r $glyco </command>
+  <command interpreter="ruby">protein_prophet_wrapper.rb $output $input_file  -r $glyco </command>
   <inputs>
 	
     <param name="input_file" type="data" format="pepxml" multiple="false" label="Peptide Prophet Results" help="These files will typically be outputs from peptide prophet or interprophet"/>

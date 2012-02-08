@@ -4,6 +4,8 @@ $VERBOSE=nil
 
 peptide_prophet_path=%x[which peptide_prophet.rb]
 
+actual_output_path_string=ARGV.shift
+
 # Second argument is the original input file name ... we'll change this below
 original_input_file=ARGV[0]
 
@@ -14,6 +16,7 @@ wd= Dir.pwd
 
 original_input_path=Pathname.new("#{original_input_file}")
 actual_input_path_string="#{wd}/#{original_input_path.basename}.pep.xml"
+full_tmp_output_path_string="#{wd}/peptide_prophet_output.pep.xml"
 
 cmd = "ln -s #{original_input_file} #{actual_input_path_string};"
 
@@ -22,9 +25,16 @@ cmd << peptide_prophet_path.chomp
 
 ARGV[0]="#{actual_input_path_string}"
 
-ARGV.each { |a| 
-    
+ARGV.each { |a|    
   cmd << " #{a}" 
 }
+
+cmd << "-o peptide_prophet_output.pep.xml"
+
+# Finally we need to fix up the output file so any references to the temporary working file are changed to refs to the original input file
+cmd << ";ruby -pi -e \"gsub('#{actual_input_path_string}', '#{original_input_file}')\" peptide_prophet_output.pep.xml"
+cmd << ";ruby -pi -e \"gsub('#{full_tmp_output_path_string}', '#{actual_output_path_string}')\" peptide_prophet_output.pep.xml"
+
+p cmd
 
 %x[#{cmd}]
