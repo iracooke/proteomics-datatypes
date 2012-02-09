@@ -1,10 +1,10 @@
 """
 Proteomics format classes
 """
-import data
 import logging
-import xml
 import re
+from galaxy.datatypes.data import *
+from galaxy.datatypes.xml import *
 from galaxy.datatypes.sniff import *
 from galaxy.datatypes.binary import *
 
@@ -28,7 +28,7 @@ class Xls( Binary ):
         except:
             return "Binary xls file (%s)" % ( data.nice_size( dataset.get_size() ) )
 
-class PepXml(xml.GenericXml):
+class PepXml(GenericXml):
     """pepXML data"""
     file_ext = "pepxml"
 
@@ -56,7 +56,7 @@ class PepXml(xml.GenericXml):
         handle.close()
         return False
 
-class MzML( xml.GenericXml ):
+class MzML( GenericXml ):
     """mzML data"""
     file_ext = "mzml"
     
@@ -82,7 +82,7 @@ class MzML( xml.GenericXml ):
         return False
 
 
-class ProtXML( data.Text ):
+class ProtXML( Text ):
     """protXML data"""
     file_ext = "protxml"
 
@@ -107,7 +107,7 @@ class ProtXML( data.Text ):
 
 
 
-class MzXML( data.Text ):
+class MzXML( Text ):
     """mzXML data"""
     file_ext = "mzXML"
 
@@ -129,7 +129,7 @@ class MzXML( data.Text ):
             if line != mzxml_header[ i ]:
                 return False        
  
-class Mgf( data.Text ):
+class Mgf( Text ):
     """Mascot Generic Format data"""
     file_ext = "mgf"
 
@@ -153,8 +153,9 @@ class Mgf( data.Text ):
                 return True
             if i>max_lines:
                 return False
+            
                 
-class MascotDat( data.Text ):
+class MascotDat( Text ):
     """Mascot search results """
     file_ext = "mascotdat"
 

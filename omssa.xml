@@ -10,7 +10,83 @@
 		#else #omssa_search.rb -d $database.fasta_file $glyco $maldi -f $fragment_ion_tol $input_file -o $output -r
 		#end if
 	</command>
+<!--
+	 -i <String>
+   id numbers of ions to search (comma delimited, no spaces)
+   Default = `1,4'
+0: a
+1: b
+2: c
+3: x
+4: y
+5: zdot
+10: adot
+11: x-CO2
+12: adot-CO2
 
+ -te <Real>
+   precursor ion m/z tolerance in Da (or ppm if -teppm flag set)
+   Default = `2.0'
+ -tem <Integer>
+   precursor ion search type (0 = mono, 1 = avg, 2 = N15, 3 = exact, 4 =
+   multiisotope)
+   Default = `0'
+ -ti <Integer>
+   when doing multiisotope search, number of isotopic peaks to search.  0 =
+   monoisotopic peak only
+   Default = `0'
+ -teppm
+   search precursor masses in units of ppm
+ -cp <Integer>
+   eliminate charge reduced precursors in spectra (0=no, 1=yes)
+   Default = `0'
+ -v <Integer>
+   number of missed cleavages allowed
+   Default = `1'
+-mf <String>
+   comma delimited (no spaces) list of id numbers for fixed modifications
+   Default = `'
+ -mv <String>
+   comma delimited (no spaces) list of id numbers for variable modifications
+   Default = `'
+ -mnm
+   n-term methionine should not be cleaved
+-zh <Integer>
+   maximum precursor charge to search when not 1+
+   Default = `3'
+ -zl <Integer>
+   minimum precursor charge to search when not 1+
+   Default = `1'
+
+ -e <Integer>
+   id number of enzyme to use
+   Default = `0'
+0: Trypsin
+1: Arg-C
+2: CNBr
+3: Chymotrypsin (FYWL)
+4: Formic Acid
+5: Lys-C
+6: Lys-C, no P rule
+7: Pepsin A
+8: Trypsin+CNBr
+9: Trypsin+Chymotrypsin (FYWLKR)
+10: Trypsin, no P rule
+11: Whole protein
+12: Asp-N
+13: Glu-C
+14: Asp-N+Glu-C
+15: Top-Down
+16: Semi-Tryptic
+17: No Enzyme
+18: Chymotrypsin, no P rule (FYWL)
+19: Asp-N (DE)
+20: Glu-C (DE)
+21: Lys-N (K)
+22: Thermolysin, no P rule
+23: Semi-Chymotrypsin (FYWL)
+24: Semi-Glu-C
+-->
 
 	<inputs>	
 		<conditional name="database">
@@ -31,6 +107,25 @@
 				<param name="fasta_file" type="data" format="fasta" label="Uploaded FASTA file" />
 			</when>
 		</conditional>
+		
+		
+		<repeat name="variable_mods" title="Variable Modification">
+			<param name="var_mod" format="text" type="select" label="" help="">
+				<options from_file="omssa_mods.loc">
+				     <column name="name" index="0" />
+					<column name="value" index="1" />
+				</options>
+			</param>		
+		</repeat>
+
+		<repeat name="fixed_mods" title="Fixed Modification">
+			<param name="fix_mod" format="text" type="select" label="" help="">
+				<options from_file="omssa_mods.loc">
+				     <column name="name" index="0" />
+					<column name="value" index="1" />
+				</options>
+			</param>		
+		</repeat>
 		
 		<param name="input_file" type="data" format="mgf" multiple="false" label="MSMS File" help="An mgf file with MS/MS data"/>
 		<param name="glyco" type="boolean" label="Require deamidated-N (glycocapture data)" truevalue="-g" falsevalue=""/>

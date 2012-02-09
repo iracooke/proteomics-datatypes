@@ -1,0 +1,181 @@
+#This file lists the names of chemical modifications accepted by OMMSA
+#
+#
+2-amino-3-oxo-butanoic acid T	23
+Asparagine HexNAc	182
+Asparagine dHexHexNAc	183
+CAMthiopropanoyl K	131
+CHD2-di-methylation of K	189
+CHD2-di-methylation of peptide n-term	190
+ICAT heavy	130
+ICAT light	129
+M cleavage from protein n-term	9
+MMTS on C	179
+Maleimide-PEO2-Biotin of C	191
+NEM C	83
+NIPCAM	84
+O18 on peptide n-term	87
+PNGasF in O18 water	139
+SeMet	113
+Serine HexNAc	184
+TMT 6-plex on K	198
+TMT 6-plex on n-term peptide	199
+Threonine HexNAc	185
+Uniblue A on K	195
+acetylation of K	24
+acetylation of protein n-term	10
+amidation of peptide c-term	25
+arginine to ornithine	163
+beta elimination of S	140
+beta elimination of T	141
+beta methythiolation of D	13
+beta-carboxylation of D	47
+beta-methylthiolation of D (duplicate of 13)	26
+carbamidomethyl C	3
+carbamylation of K	31
+carbamylation of n-term peptide	32
+carboxyamidomethylation of D	29
+carboxyamidomethylation of E	30
+carboxyamidomethylation of H	28
+carboxyamidomethylation of K	27
+carboxykynurenin of W	165
+carboxymethyl C	2
+carboxymethylated selenocysteine	207
+citrullination of R	33
+deamidation of N	196
+deamidation of N and Q	4
+dehydro of S and T	164
+di-O18 on peptide n-term	88
+di-iodination of Y	35
+di-methylation of K	36
+di-methylation of R	37
+di-methylation of peptide n-term	38
+farnesylation of C	42
+fluorophenylalanine	46
+formylation of K	43
+formylation of peptide n-term	44
+formylation of protein n-term	82
+gamma-carboxylation of E	48
+gammathiopropionylation of K	40
+gammathiopropionylation of peptide n-term	41
+geranyl-geranyl	49
+glucuronylation of protein n-term	50
+glutathione disulfide	51
+guanidination of K	53
+heavy arginine-13C6	136
+heavy arginine-13C6-15N4	137
+heavy lysine - 13C6 15N2	181
+heavy lysine - 2H4	180
+heavy lysine-13C6	138
+homoserine	56
+homoserine lactone	57
+hydroxylation of  Y	64
+hydroxylation of D	59
+hydroxylation of F	63
+hydroxylation of K	60
+hydroxylation of N	61
+hydroxylation of P	62
+iTRAQ114 on K	168
+iTRAQ114 on Y	169
+iTRAQ114 on nterm	167
+iTRAQ115 on K	171
+iTRAQ115 on Y	172
+iTRAQ115 on nterm	170
+iTRAQ116 on K	174
+iTRAQ116 on Y	175
+iTRAQ116 on nterm	173
+iTRAQ117 on K	177
+iTRAQ117 on Y	178
+iTRAQ117 on nterm	176
+iTRAQ8plex	204
+iTRAQ8plex	205
+iTRAQ8plex	203
+iTRAQ8plex	201
+iTRAQ8plex	202
+iTRAQ8plex	200
+iodination of Y	65
+lipoyl K	67
+methyl C	73
+methyl H	74
+methyl N	75
+methyl R	77
+methyl ester of D	69
+methyl ester of E (duplicate of 17)	70
+methyl ester of S	71
+methyl ester of Y	72
+methyl ester of peptide c-term (duplicate of 18)	68
+methylation of D	16
+methylation of E	17
+methylation of K	0
+methylation of Q	14
+methylation of peptide c-term	18
+methylation of peptide n-term	76
+methylation of protein n-term	11
+myristoleylation of G	78
+myristoyl-4H of G	79
+myristoylation of K	81
+myristoylation of peptide n-term G	80
+n-acyl diglyceride cysteine	118
+n-formyl met addition	22
+oxidation of C	193
+oxidation of C to cysteic acid	34
+oxidation of C to sulfinic acid	162
+oxidation of F to dihydroxyphenylalanine	39
+oxidation of H	89
+oxidation of H to D	55
+oxidation of H to N	54
+oxidation of M	1
+oxidation of P to pyroglutamic acid	111
+oxidation of W	90
+oxidation of W to formylkynurenin	45
+oxidation of W to hydroxykynurenin	58
+oxidation of W to kynurenin	66
+oxidation of W to nitro	85
+oxidation of Y (duplicate of 64)	194
+oxidation of Y to nitro	86
+palmitoleyl of C	187
+palmitoleyl of S	186
+palmitoleyl of T	188
+palmitoylation of C	92
+palmitoylation of K	93
+palmitoylation of S	94
+palmitoylation of T	95
+phosphopantetheine S	91
+phosphorylation of H	192
+phosphorylation of S	6
+phosphorylation of S with ETD loss	134
+phosphorylation of S with prompt loss	96
+phosphorylation of T	7
+phosphorylation of T with ETD loss	135
+phosphorylation of T with prompt loss	97
+phosphorylation of Y	8
+phosphorylation with neutral loss on C	99
+phosphorylation with neutral loss on D	100
+phosphorylation with neutral loss on H	101
+phosphorylation with neutral loss on S	132
+phosphorylation with neutral loss on T	133
+phosphorylation with prompt loss on Y	98
+propionamide C	5
+propionyl heavy K	104
+propionyl heavy peptide n-term	105
+propionyl light K	102
+propionyl light on peptide n-term	103
+pyridyl K	106
+pyridyl peptide n-term	107
+pyro-cmC	108
+pyro-glu from n-term E	109
+pyro-glu from n-term Q	110
+s-pyridylethylation of C	112
+selenocysteine	206
+sulfation of Y	114
+sulphone of M	115
+sumoylation of K	166
+tri-deuteromethylation of D	19
+tri-deuteromethylation of E	20
+tri-deuteromethylation of peptide c-term	21
+tri-iodination of Y	116
+tri-methylation of K	15
+tri-methylation of R	117
+tri-methylation of protein n-term	12
+trideuteration of L (SILAC)	197
+ubiquitinylation residue	52

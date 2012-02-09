@@ -1,8 +1,7 @@
-#This file lists the names of protein databases
+#This file lists the names of protein databases installed on Mascot
 #
 # Entries should follow the be structured as follows
-# Display_name mascot_dbname dbkey
-#
+# Display_name dbkey dbNameOnMascot dbkey
 #
 Swissprot	spall_	SPAll	spall_
 Combined PlasmboDB (falciparum) and Swissprot Human	plasmodb_pfalciparum_sphuman_	PlasmoDB_PFalc_SPHu	plasmodb_pfalciparum_sphuman_

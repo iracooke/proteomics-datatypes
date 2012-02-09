@@ -1,6 +1,5 @@
 #This file lists the names of chemical modifications acceptable for proteomics search engines
 #
-#So, unimod_names.loc could look something like this:
 #
 Acetyl (K)	acetyl_k_	Acetyl (K)	acetyl_k_
 Acetyl (N-term)	acetyl_n-term_	Acetyl (N-term)	acetyl_n-term_
