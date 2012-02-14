@@ -4,7 +4,7 @@
 
 
 <!-- Note .. the input file is assumed to be the first argument -->
-<command interpreter="ruby">xls_to_table.rb $input_file -o $output</command>
+<command>xls_to_table.rb $input_file -o $output</command>
 
 
 <inputs>

@@ -11,18 +11,14 @@
 		#end if
 		
 		--var-mods='
-		#for $variable_mod in $variable_mods:
-		${variable_mod.var_mod},
-		#end for
+		$variable_mods
 		'
 		
 		--fix-mods='
-		#for $fixed_mod in $fixed_mods:
-		${fixed_mod.fix_mod},
-		#end for
+		$fixed_mods
 		'
 		
-		$maldi $input_file -o $output -r --enzyme=$enzyme --instrument=$instrument --precursor-ion-tol-units=$precursor_tolu -v $missed_cleavages -f $fragment_ion_tol -p $precursor_ion_tol --num-peaks-for-multi-isotope-search $multi_isotope $use_average_mass
+		$maldi $input_file -o $output -r --enzyme=$enzyme --precursor-ion-tol-units=$precursor_tolu -v $missed_cleavages -f $fragment_ion_tol -p $precursor_ion_tol --num-peaks-for-multi-isotope-search $multi_isotope $use_average_mass
 
 	</command>
 	
@@ -64,23 +60,22 @@
 		<param name="input_file" type="data" format="mgf" multiple="false" label="MSMS File" help="An mgf file with MS/MS data"/>
 		<param name="maldi" type="boolean" label="Is the data from a MALDI instrument" truevalue="-l" falsevalue=""/>
 		
-		<repeat name="variable_mods" title="Variable Modification">
-			<param name="var_mod" format="text" type="select" label="" help="">
-				<options from_file="omssa_mods.loc">
-				     <column name="name" index="0" />
-					<column name="value" index="2" />
-				</options>
-			</param>		
-		</repeat>
 
-		<repeat name="fixed_mods" title="Fixed Modification">
-			<param name="fix_mod" format="text" type="select" label="" help="">
-				<options from_file="omssa_mods.loc">
-				     <column name="name" index="0" />
-					<column name="value" index="2" />
-				</options>
-			</param>		
-		</repeat>
+		<param name="variable_mods" format="text" type="select" multiple="true" label="Variable Modifications" help="Hold the appropriate key while
+			clicking to select multiple items">
+			<options from_file="omssa_mods.loc">
+				<column name="name" index="0" />
+				<column name="value" index="2" />
+			</options>
+		</param>		
+
+		<param name="fixed_mods" format="text" type="select" multiple="true" label="Fixed Modifications" help="Hold the appropriate key while
+		clicking to select multiple items">
+			<options from_file="omssa_mods.loc">
+				<column name="name" index="0" />
+				<column name="value" index="2" />
+			</options>
+		</param>
 
 		
 		<param name="missed_cleavages" type="select" format="text" help="Allow peptides to contain up to this many missed enzyme cleavage sites">
