@@ -18,7 +18,7 @@
 		$fixed_mods
 		'
 		
-		$maldi $input_file -o $output -r --enzyme=$enzyme --precursor-ion-tol-units=$precursor_tolu -v $missed_cleavages -f $fragment_ion_tol -p $precursor_ion_tol --num-peaks-for-multi-isotope-search $multi_isotope $use_average_mass
+		$input_file -o $output -r --enzyme=$enzyme --precursor-ion-tol-units=$precursor_tolu -v $missed_cleavages -f $fragment_ion_tol -p $precursor_ion_tol --num-peaks-for-multi-isotope-search $multi_isotope $use_average_mass
 
 	</command>
 	
@@ -57,9 +57,7 @@
 			</when>
 		</conditional>
 		
-		<param name="input_file" type="data" format="mgf" multiple="false" label="MSMS File" help="An mgf file with MS/MS data"/>
-		<param name="maldi" type="boolean" label="Is the data from a MALDI instrument" truevalue="-l" falsevalue=""/>
-		
+		<param name="input_file" type="data" format="mgf" multiple="false" label="MSMS File" help="An mgf file with MS/MS data"/>		
 
 		<param name="variable_mods" format="text" type="select" multiple="true" label="Variable Modifications" help="Hold the appropriate key while
 			clicking to select multiple items">
