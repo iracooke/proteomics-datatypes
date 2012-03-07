@@ -3,10 +3,18 @@ require 'pathname'
 $VERBOSE=nil
 
 actual_output_path_string=ARGV[0]
+use_nss=ARGV[1]
+use_nrs=ARGV[2]
+use_nse=ARGV[3]
+use_nsi=ARGV[4]
+use_nsm=ARGV[5]
+minprob=ARGV[6]
+minprob_val=ARGV[7]
+
 
 wd= Dir.pwd
 
-original_input_files=ARGV.drop(1)
+original_input_files=ARGV.drop(8)
 cmd=""
 
 output_substitution_cmds=""
@@ -26,6 +34,13 @@ end
 
 interprophet_path=%x[which interprophet.rb]
 cmd << interprophet_path.chomp
+
+cmd << " --no-nss" unless use_nss=="blank"
+cmd << " --no-nrs" unless use_nrs=="blank"
+cmd << " --no-nse" unless use_nse=="blank"
+cmd << " --no-nsi" unless use_nsi=="blank"
+cmd << " --no-nsm" unless use_nsm=="blank"
+
 
 input_files.each { |input|
   cmd << " #{input}"
