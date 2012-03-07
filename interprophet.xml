@@ -31,7 +31,7 @@
 	<param name="use_nsi" checked="true" type="boolean" label="Include NSI in Model" help="Include NSI (Number of Sibling Ions) in Statistical Model" truevalue="blank" falsevalue="--nonsi"/>
 	<param name="use_nsm" checked="true" type="boolean" label="Include NSM in Model" help="Include NSM (Number of Sibling Modifications) in Statistical Model" truevalue="blank" falsevalue="--nonsm"/>
 	
-	<param name="minprob" type="text" label="Minimum probability"/>
+	<param name="minprob" type="text" label="Minimum threshod probability for reporting results"/>
 		
   </inputs>
   <outputs>
