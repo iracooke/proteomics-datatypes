@@ -29,7 +29,7 @@ ARGV.each { |a|
   cmd << " #{a}" 
 }
 
-cmd << "-o peptide_prophet_output.pep.xml"
+cmd << " -o peptide_prophet_output.pep.xml"
 
 # Finally we need to fix up the output file so any references to the temporary working file are changed to refs to the original input file
 cmd << ";ruby -pi -e \"gsub('#{actual_input_path_string}', '#{original_input_file}')\" peptide_prophet_output.pep.xml"
