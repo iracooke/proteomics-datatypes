@@ -61,15 +61,46 @@
 	
 	<param name="allowed_charges" type="select" format="text">
 	    <label>Peptide Charge</label>
-	    <option value="1+, 2+ and 3+">1+,2+ and 3+</option>		
+		<option value="8-">8-</option>
+		<option value="7-">7-</option>
+		<option value="6-">6-</option>
+		<option value="5-">5-</option>
+		<option value="4-">4-</option>
+		<option value="3-">3-</option>
+		<option value="2-,3- and 4-">2-,3- and 4-</option>
+		<option value="2- and 3-">2- and 3-</option>
+		<option value="2-">2-</option>
+		<option value="1-,2- and 3-">1-,2- and 3-</option>
+		<option value="1-">1-</option>
+		<option value="Mr">Mr</option>
 		<option value="1+">1+</option>
+	    <option value="1+, 2+ and 3+">1+,2+ and 3+</option>		
+		<option value="2+">2+</option>
+		<option value="2+ and 3+">2+ and 3+</option>
+		<option value="2+,3+ and 4+">2+,3+ and 4+</option>
+		<option value="3+">3+</option>
+		<option value="4+">4+</option>
+		<option value="5+">5+</option>
+		<option value="6+">6+</option>
+		<option value="7+">7+</option>
+		<option value="8+">8+</option>
 	</param>
 	
 	<param name="instrument" type="select" format="text">
 	    <label>Instrument</label>
-	    <option value="MALDI-TOF-TOF">MALDI-TOF-TOF</option>		
 		<option value="ESI-QUAD-TOF">ESI-QUAD-TOF</option>
+		<option value="MALDI-TOF-PSD">MALDI-TOF-PSD</option>
 		<option value="ESI-TRAP">ESI-TRAP</option>
+		<option value="ESI-QUAD">ESI-QUAD</option>
+		<option value="ESI-FTICR">ESI-FTICR</option>
+	    <option value="MALDI-TOF-TOF">MALDI-TOF-TOF</option>
+		<option value="ESI-4SECTOR">ESI-4SECTOR</option>
+		<option value="FTMS-ECD">FTMS-ECD</option>
+		<option value="ETD-TRAP">ETD-TRAP</option>
+		<option value="MALDI-QUAD-TOF">MALDI-QUAD-TOF</option>
+		<option value="MALDI-QIT-TOF">MALDI-QIT-TOF</option>
+		<option value="MALDI-ISD">MALDI-ISD</option>
+		<option value="CID+ETD">CID+ETD</option>
 	</param>
 	
 	<param name="fragment_ion_tol" label="Fragment Ion Tolerance in Daltons" type="float" value="0.65" min="0" max="10000" help="Fragment ion tolerance in Daltons"/>

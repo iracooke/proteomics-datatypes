@@ -3,7 +3,7 @@
 		<requirement type="package">protk</requirement>
 	</requirements>
 	
-	<description>Run an OMSSA Search on a File</description>
+	<description>Run an OMSSA MS/MS Search</description>
 		
 	<command>#if $database.source_select=="built_in":
 		omssa_search.rb -d $database.dbkey 
@@ -18,24 +18,14 @@
 		$fixed_mods
 		'
 		
-		$input_file -o $output -r --enzyme=$enzyme --precursor-ion-tol-units=$precursor_tolu -v $missed_cleavages -f $fragment_ion_tol -p $precursor_ion_tol --num-peaks-for-multi-isotope-search $multi_isotope $use_average_mass
+		--searched-ions='
+		$searched_ions
+		'
+		
+		$input_file -o $output -r --enzyme=$enzyme --precursor-ion-tol-units=$precursor_tolu -v $missed_cleavages -f $fragment_ion_tol -p $precursor_ion_tol --num-peaks-for-multi-isotope-search $multi_isotope $use_average_mass $respect_precursor_charges
 
 	</command>
 	
-<!-- TODO: Add an option for this
-	 -i <String>
-   id numbers of ions to search (comma delimited, no spaces)
-   Default = `1,4'
-0: a
-1: b
-2: c
-3: x
-4: y
-5: zdot
-10: adot
-11: x-CO2
-12: adot-CO2
--->
 
 	<inputs>	
 		<conditional name="database">
@@ -122,6 +112,8 @@
 		</param>
 		
 		<param name="use_average_mass" type="boolean" label="Use average precursor masses" help="Match precursor to average mass of the parent ion instead of its monoisotopic mass" truevalue="-a average" falsevalue=""/>
+		<param name="respect_precursor_charges" type="boolean" label="Respect precursor charges" help="Use precursor charge information in input file rather than OMSSA's inferred value" truevalue="--respect-charges" falsevalue=""/>
+		
 		<param name="multi_isotope" type="select" format="text" help="Include this many neighbouring peaks when searching for a match to the precursor mass. Only used when doing monoisotopic search">
 			<label>Multi-isotope search.</label>
 		    <option value="0">0</option>
@@ -131,7 +123,17 @@
 			<option value="4">4</option>
 		</param>
 
-		
+		<param name="searched_ions" display="checkboxes" type="select" multiple="true" format="text" label="Ions included in search" help="">
+		    <option value="0">a</option>
+			<option selected="true" value="1">b</option>
+			<option value="2">c</option>
+			<option value="3">x</option>
+			<option selected="true" value="4">y</option>
+			<option value="5">zdot</option>
+			<option value="10">adot</option>
+			<option value="11">x-CO2</option>
+			<option value="12">adot-CO2</option>
+		</param>
 		
 	</inputs>
 
