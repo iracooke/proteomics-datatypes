@@ -14,7 +14,7 @@ minprob_val=ARGV[7]
 
 wd= Dir.pwd
 
-original_input_files=ARGV.drop(8)
+original_input_files=ARGV.drop(7)
 cmd=""
 
 output_substitution_cmds=""

@@ -3,17 +3,17 @@
 	<datatype_files>
 		<datatype_file name="proteomics.py"/>
 	</datatype_files>		
-    <registration display_path="display_applications">
+    <registration display_path="display_applications">	
         <datatype extension="pepxml" type="galaxy.datatypes.proteomics:PepXml" mimetype="application/xml" display_in_upload="true">
             <display file="proteomics/PepXml.xml" />
         </datatype>
-		<datatype extension="raw_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="True">
+		<datatype extension="raw_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="true">
 			<display file="proteomics/PepXml.xml" />
 		</datatype>
-		<datatype extension="peptideprophet_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="True">
+		<datatype extension="peptideprophet_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="true">
 			<display file="proteomics/PepXml.xml" />
 		</datatype>
-		<datatype extension="interprophet_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="True">
+		<datatype extension="interprophet_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="true">
 			<display file="proteomics/PepXml.xml" />
 		</datatype>
 		<datatype extension="protxml" type="galaxy.datatypes.proteomics:ProtXML" display_in_upload="true" >

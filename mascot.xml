@@ -112,11 +112,11 @@
 		<option value="Da">Da</option>
 	</param>
 
-	<param name="server" type="text" label="URL to Mascot Server cgi " size="60" value="http://131.172.141.56/mascot/cgi"/>
+	<param name="server" type="text" label="URL to Mascot Server cgi " size="60" value="http://www.exampleserver.com/mascot/cgi/"/>
 	
-	<param name="email" type="text" label="Email " size="60" value=""/>
+	<param name="email" type="text" label="Email " size="60" value="" help="Not Supported Yet."/>
 	
-	<param name="username" type="text" label="Username" size="60" value=""/>	
+	<param name="username" type="text" label="Username" size="60" value="" help="Not Supported Yet."/>	
 
   </inputs>
   <outputs>
