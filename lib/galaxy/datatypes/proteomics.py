@@ -268,4 +268,8 @@ class Ms2(data.Text):
                 return False
 
         return True
-        
+
+# unsniffable binary format, should do something about this
+class XHunterAslFormat(binary.Binary):
+    """ Annotated Spectra in the HLF format http://www.thegpm.org/HUNTER/format_2006_09_15.html """
+    file_ext = "hlf"
