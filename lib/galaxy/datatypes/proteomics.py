@@ -179,3 +179,35 @@ class MascotDat( Text ):
                 return True
             if i>max_lines:
                 return False
+
+
+class RAW( binary.Binary ):
+    """Class describing a Thermo Finnigan binary RAW file"""
+    file_ext = "raw"
+    def sniff( self, filename ):
+        # Thermo Finnigan RAW format is proprietary and hence not well documented.
+        # Files start with 2 bytes that seem to differ followed by F\0i\0n\0n\0i\0g\0a\0n
+        # This combination represents 17 bytes, but to play safe we read 20 bytes from 
+        # the start of the file.
+        try:
+            header = open( filename ).read(20)
+            hexheader = binascii.b2a_hex( header )
+            finnigan  = binascii.hexlify( 'F\0i\0n\0n\0i\0g\0a\0n' )
+            if hexheader.find(finnigan) != -1:
+                return True
+            return False
+        except:
+            return False
+    def set_peek( self, dataset, is_multi_byte=False ):
+        if not dataset.dataset.purged:
+            dataset.peek  = "Thermo Finnigan RAW file"
+            dataset.blurb = data.nice_size( dataset.get_size() )
+        else:
+            dataset.peek = 'file does not exist'
+            dataset.blurb = 'file purged from disk'
+    def display_peek( self, dataset ):
+        try:
+            return dataset.peek
+        except:
+            return "Thermo Finnigan RAW file (%s)" % ( data.nice_size( dataset.get_size() ) )
+
