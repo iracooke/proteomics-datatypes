@@ -211,3 +211,25 @@ class RAW( binary.Binary ):
         except:
             return "Thermo Finnigan RAW file (%s)" % ( data.nice_size( dataset.get_size() ) )
 
+
+class Msp(data.Text):
+    """ Output of NIST MS Search Program chemdata.nist.gov/mass-spc/ftp/mass-spc/PepLib.pdf """
+    file_ext = "msp"
+    
+    @staticmethod
+    def next_line_starts_with(contents, prefix):
+        next_line = contents.readline()
+        return next_line != None and next_line.startswith(prefix)
+
+    def sniff(self, filename):
+        """ Determines whether the file is a NIST MSP output file. 
+
+        >>> fname = get_test_fname('test.msp')  
+        >>> Msp().sniff(fname)
+        True
+        >>> fname = get_test_fname('test.mzXML')
+        >>> Msp().sniff(fname)
+        False
+        """
+        with open(filename, 'r') as contents:
+            return Msp.next_line_starts_with(contents, "Name:") and Msp.next_line_starts_with(contents, "MW:")
