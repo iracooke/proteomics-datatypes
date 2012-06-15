@@ -233,3 +233,39 @@ class Msp(data.Text):
         """
         with open(filename, 'r') as contents:
             return Msp.next_line_starts_with(contents, "Name:") and Msp.next_line_starts_with(contents, "MW:")
+
+class Ms2(data.Text):
+    file_ext = "ms2"
+    
+    def sniff(self, filename):
+        """ Determines whether the file is a valid ms2 file. 
+
+        >>> fname = get_test_fname('test.msp')  
+        >>> Ms2().sniff(fname)
+        False
+        >>> fname = get_test_fname('test.ms2')
+        >>> Ms2().sniff(fname)
+        True
+        """
+
+        with open(filename, 'r') as contents:
+            header_lines = []
+            while True:
+                line = contents.readline()
+                if line == None or len(line) == 0:
+                    pass
+                elif line.startswith('H\t'):
+                    header_lines.append(line)
+                else:
+                    break
+        for header_field in ['CreationDate', 'Extractor', 'ExtractorVersion', 'ExtractorOptions']:
+            found_header = False
+            for header_line in header_lines:
+                if header_line.startswith('H\t%s' % (header_field)):
+                    found_header = True
+                    break
+            if not found_header:
+                return False
+
+        return True
+        
