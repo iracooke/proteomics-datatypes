@@ -1,4 +1,4 @@
-<display id="proteomics_pepxml" version="1.0.0" name="view protXML in">
+<display id="proteomics_protxml" version="1.0.0" name="view protXML in">
 	<dynamic_links from_file="tool-data/protk_display_site.txt" skip_startswith="#" id="0" name="0">
         <!-- Define parameters by column from file -->
         <dynamic_param name="site_id" value="0"/>
