@@ -2,6 +2,8 @@ require 'pathname'
 
 $VERBOSE=nil
 
+# Hard-Coded argument order and number of arguments
+#
 actual_output_path_string=ARGV[0]
 use_nss=ARGV[1]
 use_nrs=ARGV[2]
@@ -11,10 +13,10 @@ use_nsm=ARGV[5]
 minprob=ARGV[6]
 minprob_val=ARGV[7]
 
-
 wd= Dir.pwd
-
 original_input_files=ARGV.drop(7)
+# End hard coded args #
+
 cmd=""
 
 output_substitution_cmds=""
@@ -50,8 +52,6 @@ input_files.each { |input|
 cmd << " -o interprophet_output.pep.xml -r"
 
 cmd << ";#{output_substitution_cmds}"
-
-p cmd
 
 %x[#{cmd}]
 

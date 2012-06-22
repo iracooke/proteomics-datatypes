@@ -2,8 +2,6 @@
 	<requirements><requirement type="package">protk</requirement></requirements>
   <description>Combine Peptide Prophet results from multiple search engines</description>
 
-
-<!-- Note .. the input file is assumed to be the first argument -->
   <command interpreter="ruby">
 
 	interprophet_wrapper.rb $output $use_nss $use_nrs $use_nse $use_nsi $use_nsm --minprob $minprob
