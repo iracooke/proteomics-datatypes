@@ -35,6 +35,4 @@ cmd << " -o peptide_prophet_output.pep.xml"
 cmd << ";ruby -pi -e \"gsub('#{actual_input_path_string}', '#{original_input_file}')\" peptide_prophet_output.pep.xml"
 cmd << ";ruby -pi -e \"gsub('#{full_tmp_output_path_string}', '#{actual_output_path_string}')\" peptide_prophet_output.pep.xml"
 
-p cmd
-
 %x[#{cmd}]

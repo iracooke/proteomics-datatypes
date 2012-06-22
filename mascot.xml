@@ -19,7 +19,7 @@
 
 	<inputs>
 	
-    <param name="input_file" type="data" format="mgf" multiple="false" label="MSMS File" help="A Mascot Generic Format file with MSMS Spectra"/>
+    <param name="input_file" type="data" format="mgf" multiple="false" label="MSMS File" help="A Mascot Generic Format file containing MSMS Spectra"/>
 
 	<param name="database" type="select" format="text" >
 	    <label>Database</label>

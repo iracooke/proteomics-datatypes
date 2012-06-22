@@ -3,7 +3,7 @@
 		<requirement type="package">protk</requirement>
 	</requirements>
 	
-	<description>Converts an mzML file to mgf suitable for searching</description>
+	<description>Converts an mzML file to mgf suitable for searching by omssa</description>
 
 	<command>file_convert.rb $input_file -o $output $maldi</command>
 

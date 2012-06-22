@@ -17,7 +17,7 @@
 
   <inputs>
 
-	<param name="first_input" type="data" format="peptideprophet_pepxml" label="Peptide Prophet Results" help="These files will typically be outputs from omssa or xtandem search tools that have subsequently been run through peptide prophet"/> 	
+	<param name="first_input" type="data" format="peptideprophet_pepxml" label="Peptide Prophet Results" help="These files will typically be outputs from search tools that have subsequently been run through peptide prophet"/> 	
 		
 	<repeat name="input_files" title="Additional PepXML Input Files">
 		<param format="peptideprophet_pepxml" name="additional_input" type="data" label="PepXML produced by Peptide Prophet" help=""/>
