@@ -24,7 +24,8 @@
       <display file="proteomics/mzML.xml"/>
     </datatype>
     <datatype extension="mgf" type="galaxy.datatypes.proteomics:Mgf" display_in_upload="true" />		
-      <datatype extension="xls" type="galaxy.datatypes.proteomics:Xls" display_in_upload="true" />
+    <datatype extension="xls" type="galaxy.datatypes.proteomics:Xls" display_in_upload="true" />
+    <datatype extension="mzxml" type="galaxy.datatypes.proteomics:MzXML" mimetype="application/xml" display_in_upload="true" />
   </registration>
   <sniffers>
     <sniffer type="galaxy.datatypes.proteomics:MzML"/>        
