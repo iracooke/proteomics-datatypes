@@ -1,6 +1,7 @@
 <tool id="proteomics_convert_annotate_ids_1" name="Protein Prophet to Excel" version="1.0.0">
 	<requirements><requirement type="package">protk</requirement></requirements>
-  <description>Looks up metadata about identified proteins in a set of search results. Metadata is obtained from the uniprot database and results are written to an excel spreadsheet.</description>
+  
+	<description>Looks up metadata about identified proteins in a set of search results. Metadata is obtained from the uniprot database and results are written to an excel spreadsheet.</description>
 
   <command>annotate_ids.rb $input_file -o $output -I "protXML" -r</command>
   <inputs>
