@@ -29,7 +29,7 @@
     <datatype extension="raw" type="galaxy.datatypes.proteomics:RAW" display_in_upload="true" />
     <datatype extension="msp" type="galaxy.datatypes.proteomics:Msp" display_in_upload="true" />
     <datatype extension="ms2" type="galaxy.datatypes.proteomics:Ms2" display_in_upload="true" />
-    <datatype extension="hlf" type="galaxy.datatypes.proteomics:XHunderAslFormat" display_in_upload="true" />
+    <datatype extension="hlf" type="galaxy.datatypes.proteomics:XHunterAslFormat" display_in_upload="true" />
   </registration>
   <sniffers>
     <sniffer type="galaxy.datatypes.proteomics:MzML"/>        

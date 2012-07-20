@@ -181,7 +181,7 @@ class MascotDat( Text ):
                 return False
 
 
-class RAW( binary.Binary ):
+class RAW( Binary ):
     """Class describing a Thermo Finnigan binary RAW file"""
     file_ext = "raw"
     def sniff( self, filename ):
@@ -212,7 +212,7 @@ class RAW( binary.Binary ):
             return "Thermo Finnigan RAW file (%s)" % ( data.nice_size( dataset.get_size() ) )
 
 
-class Msp(data.Text):
+class Msp(Text):
     """ Output of NIST MS Search Program chemdata.nist.gov/mass-spc/ftp/mass-spc/PepLib.pdf """
     file_ext = "msp"
     
@@ -234,7 +234,7 @@ class Msp(data.Text):
         with open(filename, 'r') as contents:
             return Msp.next_line_starts_with(contents, "Name:") and Msp.next_line_starts_with(contents, "MW:")
 
-class Ms2(data.Text):
+class Ms2(Text):
     file_ext = "ms2"
     
     def sniff(self, filename):
@@ -270,6 +270,6 @@ class Ms2(data.Text):
         return True
 
 # unsniffable binary format, should do something about this
-class XHunterAslFormat(binary.Binary):
+class XHunterAslFormat(Binary):
     """ Annotated Spectra in the HLF format http://www.thegpm.org/HUNTER/format_2006_09_15.html """
     file_ext = "hlf"
