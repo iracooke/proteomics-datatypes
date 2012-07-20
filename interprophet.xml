@@ -40,14 +40,15 @@
 
 **What it does**
 
-	Takes a set of pepXML files (possibly generated using different search engines) and calculates updated identification probabilities for each peptide.  The updated probabilities are based on a statistical model that combines evidence from identifications across all of the input files, spectra, modified states and charge states. 
+Takes a set of pepXML files (possibly generated using different search engines) and calculates updated identification probabilities for each peptide.  The updated probabilities are based on a statistical model that combines evidence from identifications across all of the input files, spectra, modified states and charge states. 
 
+----
 
-	**Citation**
+**Citation**
 
-	If you use this tool please read and cite the paper describing iProphet
+If you use this tool please read and cite the paper describing iProphet
 
-	Shteynberg D, et al. “iProphet: Improved statistical validation of peptide identifications in shotgun proteomics.” *Molecular and Cellular Proteomics* 10, M111.007690 (2011).
+Shteynberg D, et al. “iProphet: Improved statistical validation of peptide identifications in shotgun proteomics.” *Molecular and Cellular Proteomics* 10, M111.007690 (2011).
 
   </help>
 

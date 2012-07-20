@@ -112,7 +112,17 @@
 
 
   <help>
-	Run an X!Tandem Search
+
+**What it does**
+
+Runs an MS/MS database search using the X!Tandem search engine. Output is in the form of a pepXML file containing identified peptides along with their raw search scores.
+
+----
+
+**References**
+
+Please see http://www.thegpm.org/GPM/references.html for details of references describing the X!Tandem search engine.
+
   </help>
 
 </tool>

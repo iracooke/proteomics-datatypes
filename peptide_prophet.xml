@@ -30,9 +30,22 @@
     <data format="peptideprophet_pepxml" name="output" metadata_source="input_file" label="peptide_prophet.${input_file.display_name}.pep.xml" from_work_dir="peptide_prophet_output.pep.xml"/>
   </outputs>
 
-  <help>
-	Run Peptide Prophet
-  </help>
+<help>
+
+**What it does**
+
+Given raw search engine scores as inputs this tool estimates the accuracy of peptide assignments.  From a practical perspective it estimates the probability that each peptide assignment is correct (providing probabilities as outputs), given raw scores (possibly on some arbitrary scale) as inputs. 
+
+----
+
+**Citation**
+
+If you use this tool please read and cite the paper describing the statistical model implemented by Peptide Prophet
+
+Keller A., et al. “Empirical Statistical Model to Estimate the Accuracy of Peptide Identifications Made by MS/MS and Database Search” *Anal. Chem.* 74, 5383-5392 (2002).
+
+
+</help>
 
 
 <!--PeptideProphet options [following the 'O']:

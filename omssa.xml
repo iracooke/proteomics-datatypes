@@ -145,6 +145,17 @@
 	</outputs>
 
 	<help>
-		Run an OMSSA Search
+**What it does**
+
+Runs an MS/MS database search using the OMSSA search engine. Output is in the form of a pepXML file containing identified peptides along with their raw search scores.
+
+----
+
+**Citation**
+
+If you use this tool please read and cite the paper describing OMSSA. 
+
+Geer L. Y., et al. “Open mass spectrometry search algorithm” *J. Proteome Res.* 3(5), 958-964 (2004).
+
 	</help>
 </tool>
