@@ -212,6 +212,10 @@ class RAW( Binary ):
             return "Thermo Finnigan RAW file (%s)" % ( data.nice_size( dataset.get_size() ) )
 
 
+if hasattr(Binary, 'register_sniffable_binary_format'):
+    Binary.register_sniffable_binary_format('RAW', 'RAW', RAW)
+
+
 class Msp(Text):
     """ Output of NIST MS Search Program chemdata.nist.gov/mass-spc/ftp/mass-spc/PepLib.pdf """
     file_ext = "msp"
@@ -273,3 +277,7 @@ class Ms2(Text):
 class XHunterAslFormat(Binary):
     """ Annotated Spectra in the HLF format http://www.thegpm.org/HUNTER/format_2006_09_15.html """
     file_ext = "hlf"
+
+
+if hasattr(Binary, 'register_unsniffable_binary_ext'):
+    Binary.register_unsniffable_binary_ext('hlf')
