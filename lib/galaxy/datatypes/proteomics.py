@@ -28,106 +28,74 @@ class Xls( Binary ):
         except:
             return "Binary xls file (%s)" % ( data.nice_size( dataset.get_size() ) )
 
-class PepXml(GenericXml):
+class ProteomicsXml(GenericXml):
+    """ An enhanced XML datatype used to reuse code across several
+    proteomic/mass-spec datatypes. """
+
+    def sniff(self, filename):
+        """ Determines whether the file is the correct XML type. """
+        with open(filename, 'r') as contents:            
+            while True:
+                line = contents.readline()
+                if line == None or not line.startswith('<?'):
+                    break
+            pattern = '^<(\w*:)?%s' % self.root # pattern match <root or <ns:root for any ns string
+            return line != None and re.match(pattern, line) != None
+
+    def set_peek( self, dataset, is_multi_byte=False ):
+        """Set the peek and blurb text"""
+        if not dataset.dataset.purged:
+            dataset.peek = data.get_file_peek( dataset.file_name, is_multi_byte=is_multi_byte )
+            dataset.blurb = self.blurb
+        else:
+            dataset.peek = 'file does not exist'
+            dataset.blurb = 'file purged from disk'
+
+class PepXml(ProteomicsXml):
     """pepXML data"""
     file_ext = "pepxml"
+    blurb = 'pepXML data'
+    root = "msms_pipeline_analysis"
+    
 
-    def set_peek( self, dataset, is_multi_byte=False ):
-        """Set the peek and blurb text"""
-        if not dataset.dataset.purged:
-            dataset.peek = data.get_file_peek( dataset.file_name, is_multi_byte=is_multi_byte )
-            dataset.blurb = 'pepXML data'
-        else:
-            dataset.peek = 'file does not exist'
-            dataset.blurb = 'file purged from disk'
-    def sniff( self, filename ):
-        """
-        Determines whether the file is pepXML
-        """
-        #TODO - Use a context manager on Python 2.5+ to close handle
-        handle = open(filename)
-        xmlns_re = re.compile(".*pepXML\"")
-        for i in range(3):
-            line = handle.readline()
-            if xmlns_re.match(line.strip()):
-                handle.close()
-                return True
-
-        handle.close()
-        return False
-
-class MzML( GenericXml ):
+class MzML(ProteomicsXml):
     """mzML data"""
     file_ext = "mzml"
-    
-    def set_peek( self, dataset, is_multi_byte=False ):
-        """Set the peek and blurb text"""
-        if not dataset.dataset.purged:
-            dataset.peek = data.get_file_peek( dataset.file_name, is_multi_byte=is_multi_byte )
-            dataset.blurb = 'mzML Mass Spectrometry data'
-        else:
-            dataset.peek = 'file does not exist'
-            dataset.blurb = 'file purged from disk'
-
-    def sniff( self, filename ):
-        handle = open(filename)
-        xmlns_re = re.compile("^<mzML")
-        for i in range(3):
-            line = handle.readline()
-            if xmlns_re.match(line.strip()):
-                handle.close()
-                return True
-
-        handle.close()
-        return False
+    blurb = 'mzML Mass Spectrometry data'
+    root = "(mzML|indexedmzML)"
 
 
-class ProtXML( Text ):
+class ProtXML(ProteomicsXml):
     """protXML data"""
     file_ext = "protxml"
-
-    def set_peek( self, dataset, is_multi_byte=False ):
-        """Set the peek and blurb text"""
-        if not dataset.dataset.purged:
-            dataset.peek = data.get_file_peek( dataset.file_name, is_multi_byte=is_multi_byte )
-            dataset.blurb = 'prot XML Search Results'
-        else:
-            dataset.peek = 'file does not exist'
-            dataset.blurb = 'file purged from disk'
-    def sniff( self, filename ):
-        protxml_header = [ '<?xml version="1.0" encoding="ISO-8859-1"?>',
-        'xmlns="http://regis-web.systemsbiology.net/protXML"' ]
-
-        for i, line in enumerate( file( filename ) ):
-            if i >= len( pepxml_header ):
-                return True
-            line = line.rstrip( '\n\r' )
-            if protxml_header[ i ] not in line:
-                return False
+    blurb = 'prot XML Search Results'
+    root = "protein_summary"
 
 
-
-class MzXML( Text ):
+class MzXML(ProteomicsXml):
     """mzXML data"""
     file_ext = "mzXML"
+    blurb = "mzXML Mass Spectrometry data"
+    root = "mzXML"
 
-    def set_peek( self, dataset, is_multi_byte=False ):
-        """Set the peek and blurb text"""
-        if not dataset.dataset.purged:
-            dataset.peek = data.get_file_peek( dataset.file_name, is_multi_byte=is_multi_byte )
-            dataset.blurb = 'mzXML Mass Spectrometry data'
-        else:
-            dataset.peek = 'file does not exist'
-            dataset.blurb = 'file purged from disk'
-    def sniff( self, filename ):
-        mzxml_header = [ '<?xml version="1.0" encoding="ISO-8859-1"?>',
-        '<mzXML xmlns="http://sashimi.sourceforge.net/schema_revision/mzXML_2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sashimi.sourceforge.net/schema_revision/mzXML_2.1 http://sashimi.sourceforge.net/schema_revision/mzXML_2.1/mzXML_idx_2.1.xsd">' ]
-        for i, line in enumerate( file( filename ) ):
-            if i >= len( mzxml_header ):
-                return True
-            line = line.rstrip( '\n\r' )
-            if line != mzxml_header[ i ]:
-                return False        
+## PSI datatypes
+class MzIdentML(ProteomicsXml):
+    file_ext = "mzIdentML"
+    blurb = "XML identified peptides and proteins."
+    root = "MzIdentML"
+    
+
+class TraML(ProteomicsXml):
+    file_ext = "traML"
+    blurb = "TraML transition list"
+    root = "TraML"
+
+
+class MzQuantML(ProteomicsXml):
+    file_ext = "mzQuantML"
+    blurb = "XML quantification data"
+    root = "MzQuantML"
+
  
 class Mgf( Text ):
     """Mascot Generic Format data"""

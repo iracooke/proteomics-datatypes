@@ -26,6 +26,9 @@
     <datatype extension="mgf" type="galaxy.datatypes.proteomics:Mgf" display_in_upload="true" />		
     <datatype extension="xls" type="galaxy.datatypes.proteomics:Xls" display_in_upload="true" />
     <datatype extension="mzxml" type="galaxy.datatypes.proteomics:MzXML" mimetype="application/xml" display_in_upload="true" />
+    <datatype extension="mzQuantML" type="galaxy.datatypes.proteomics:MzQuantML" mimetype="application/xml" display_in_upload="true" />
+    <datatype extension="mzIdentML" type="galaxy.datatypes.proteomics:MzIdentML" mimetype="application/xml" display_in_upload="true" />
+    <datatype extension="traML" type="galaxy.datatypes.proteomics:TraML" mimetype="application/xml" display_in_upload="true" />
     <datatype extension="raw" type="galaxy.datatypes.proteomics:RAW" display_in_upload="true" />
     <datatype extension="msp" type="galaxy.datatypes.proteomics:Msp" display_in_upload="true" />
     <datatype extension="ms2" type="galaxy.datatypes.proteomics:Ms2" display_in_upload="true" />
@@ -37,6 +40,9 @@
     <sniffer type="galaxy.datatypes.proteomics:Mgf"/>
     <sniffer type="galaxy.datatypes.proteomics:ProtXML"/>
     <sniffer type="galaxy.datatypes.proteomics:MzXML"/>
+    <sniffer type="galaxy.datatypes.proteomics:TraML"/>
+    <sniffer type="galaxy.datatypes.proteomics:MzIdentML"/>
+    <sniffer type="galaxy.datatypes.proteomics:MzQuantML"/>
     <sniffer type="galaxy.datatypes.proteomics:Xls"/>
   </sniffers>
 </datatypes>
