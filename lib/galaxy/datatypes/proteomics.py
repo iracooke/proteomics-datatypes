@@ -80,7 +80,7 @@ class MzXML(ProteomicsXml):
 
 ## PSI datatypes
 class MzIdentML(ProteomicsXml):
-    file_ext = "mzIdentML"
+    file_ext = "mzid"
     blurb = "XML identified peptides and proteins."
     root = "MzIdentML"
     
@@ -92,7 +92,7 @@ class TraML(ProteomicsXml):
 
 
 class MzQuantML(ProteomicsXml):
-    file_ext = "mzQuantML"
+    file_ext = "mzq"
     blurb = "XML quantification data"
     root = "MzQuantML"
 
