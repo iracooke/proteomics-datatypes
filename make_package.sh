@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm protk-toolshed.tar.bz2
-tar --exclude=.hg/ --exclude=tool-data/datatypes_conf.xml --exclude=lib/ --exclude=display_applications --exclude=protk-toolshed.tar --exclude=make_package.sh --exclude=README.md --exclude=.hgcheck -cvf  protk-toolshed.tar ./
-bzip2 protk-toolshed.tar
+rm -f package.tar.bz2
+tar --exclude=package.tar --exclude=.hg/ --exclude=make_package.sh --exclude=README.md -cvf package.tar ./ 
+bzip2 package.tar
