@@ -1,5 +1,5 @@
 <tool id="pepxml_to_table_1" name="PepXML to Table" version="1.0.0">
-	<requirements><requirement type="package">protk</requirement></requirements>
+	<requirements><requirement type="package">protkgem</requirement></requirements>
   <description>Converts a pepXML file to a tab delimited text file</description>
 
 
