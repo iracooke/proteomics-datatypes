@@ -5,8 +5,8 @@
         <dynamic_param name="site_url" value="1"/>
         <!-- We define url and params as normal, but values defined in dynamic_param are available by specified name -->
         <url target_frame="galaxy_main">${site_url}/init_local?file=${encoded_filename.qp}&amp;type=mzml</url>
-        <param type="data" name="raw_file" viewable="False" format="mzML"/>
-        <param type="data" dataset="raw_file" name="mzml_file" format="mzML" viewable="False" />
+        <param type="data" name="raw_file" viewable="False" format="mzml"/>
+        <param type="data" dataset="raw_file" name="mzml_file" format="mzml" viewable="False" />
         <param type="template" name="encoded_filename" strip="True" >
             #import binascii
             ${binascii.hexlify( $mzml_file.file_name )}
