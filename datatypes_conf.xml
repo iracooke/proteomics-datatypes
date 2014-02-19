@@ -10,16 +10,16 @@
     <datatype extension="pepxml" type="galaxy.datatypes.proteomics:PepXml" mimetype="application/xml" display_in_upload="true">
       <display file="proteomics/PepXml.xml" />
     </datatype>
-    <datatype extension="raw_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="true">
+    <datatype extension="raw_pepxml" type="galaxy.datatypes.proteomics:PepXml" mimetype="application/xml" subclass="true">
       <display file="proteomics/PepXml.xml" />
     </datatype>
-    <datatype extension="peptideprophet_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="true">
+    <datatype extension="peptideprophet_pepxml" type="galaxy.datatypes.proteomics:PepXml" mimetype="application/xml" subclass="true">
       <display file="proteomics/PepXml.xml" />
     </datatype>
-    <datatype extension="interprophet_pepxml" type="galaxy.datatypes.proteomics:PepXml" subclass="true">
+    <datatype extension="interprophet_pepxml" type="galaxy.datatypes.proteomics:PepXml" mimetype="application/xml" subclass="true">
       <display file="proteomics/PepXml.xml" />
     </datatype>
-    <datatype extension="protxml" type="galaxy.datatypes.proteomics:ProtXML" display_in_upload="true" >
+    <datatype extension="protxml" type="galaxy.datatypes.proteomics:ProtXML" mimetype="application/xml" display_in_upload="true" >
       <display file="proteomics/ProtXml.xml"/>
     </datatype>
     <datatype extension="pepxml.tsv" type="galaxy.datatypes.proteomics:PepXmlReport" display_in_upload="true" />
@@ -30,7 +30,7 @@
       <display file="proteomics/protvis_mzml.xml"/>
     </datatype>
     <datatype extension="mgf" type="galaxy.datatypes.proteomics:Mgf" display_in_upload="true" />
-    <datatype extension="xls" type="galaxy.datatypes.proteomics:Xls" display_in_upload="true" />
+    <datatype extension="xls" type="galaxy.datatypes.proteomics:Xls" mimetype="application/octet-stream" display_in_upload="true" />
     <datatype extension="idpdb" type="galaxy.datatypes.proteomics:IdpDB" display_in_upload="true" />
     <datatype extension="mzxml" type="galaxy.datatypes.proteomics:MzXML" mimetype="application/xml" display_in_upload="true" />
     <datatype extension="mzq" type="galaxy.datatypes.proteomics:MzQuantML" mimetype="application/xml" display_in_upload="true" />
@@ -39,10 +39,10 @@
     <datatype extension="featurexml" type="galaxy.datatypes.proteomics:FeatureXML" mimetype="application/xml" display_in_upload="true" />
     <datatype extension="consensusxml" type="galaxy.datatypes.proteomics:ConsensusXML" mimetype="application/xml" display_in_upload="true" />
     <datatype extension="idxml" type="galaxy.datatypes.proteomics:IdXML" mimetype="application/xml" display_in_upload="true" />
-    <datatype extension="raw" type="galaxy.datatypes.proteomics:RAW" display_in_upload="true" />
+    <datatype extension="raw" type="galaxy.datatypes.proteomics:RAW" mimetype="application/octet-stream" display_in_upload="true" />
     <datatype extension="msp" type="galaxy.datatypes.proteomics:Msp" display_in_upload="true" />
     <datatype extension="ms2" type="galaxy.datatypes.proteomics:Ms2" display_in_upload="true" />
-    <datatype extension="hlf" type="galaxy.datatypes.proteomics:XHunterAslFormat" display_in_upload="true" />
+    <datatype extension="hlf" type="galaxy.datatypes.proteomics:XHunterAslFormat" mimetype="application/octet-stream" display_in_upload="true" />
   </registration>
   <sniffers>
     <sniffer type="galaxy.datatypes.proteomics:ProtGff"/>
