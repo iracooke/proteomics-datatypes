@@ -30,7 +30,6 @@
       <display file="proteomics/protvis_mzml.xml"/>
     </datatype>
     <datatype extension="mgf" type="galaxy.datatypes.proteomics:Mgf" display_in_upload="true" />
-    <datatype extension="xls" type="galaxy.datatypes.proteomics:Xls" mimetype="application/octet-stream" display_in_upload="true" />
     <datatype extension="idpdb" type="galaxy.datatypes.proteomics:IdpDB" display_in_upload="true" />
     <datatype extension="mzxml" type="galaxy.datatypes.proteomics:MzXML" mimetype="application/xml" display_in_upload="true" />
     <datatype extension="mzq" type="galaxy.datatypes.proteomics:MzQuantML" mimetype="application/xml" display_in_upload="true" />
@@ -54,6 +53,5 @@
     <sniffer type="galaxy.datatypes.proteomics:TraML"/>
     <sniffer type="galaxy.datatypes.proteomics:MzIdentML"/>
     <sniffer type="galaxy.datatypes.proteomics:MzQuantML"/>
-    <sniffer type="galaxy.datatypes.proteomics:Xls"/>
   </sniffers>
 </datatypes>
