@@ -5,8 +5,8 @@
         <dynamic_param name="site_url" value="1"/>
         <!-- We define url and params as normal, but values defined in dynamic_param are available by specified name -->
         <url target_frame="galaxy_main">${site_url}/init_local?file=${encoded_filename.qp}&amp;type=protgff</url>
-        <param type="data" name="prot_file" viewable="False" format="protgff"/>
-        <param type="data" dataset="prot_file" name="protgff_file" format="protgff" viewable="False" />
+        <param type="data" name="prot_file" viewable="False" format="prot_gff"/>
+        <param type="data" dataset="prot_file" name="protgff_file" format="prot_gff" viewable="False" />
         <param type="template" name="encoded_filename" strip="True" >
             #import binascii
             ${binascii.hexlify( $protgff_file.file_name )}
