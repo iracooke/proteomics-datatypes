@@ -4,9 +4,6 @@
     <datatype_file name="proteomics.py"/>
   </datatype_files>
   <registration display_path="display_applications">
-    <datatype extension="prot_gff" type="galaxy.datatypes.proteomics:ProtGff" mimetype="application/xml" display_in_upload="true">
-       <display file="proteomics/ProtGff.xml" />
-    </datatype>	
     <datatype extension="pepxml" type="galaxy.datatypes.proteomics:PepXml" mimetype="application/xml" display_in_upload="true">
       <display file="proteomics/PepXml.xml" />
     </datatype>
