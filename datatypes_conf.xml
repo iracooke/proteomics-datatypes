@@ -4,6 +4,7 @@
     <datatype_file name="proteomics.py"/>
   </datatype_files>
   <registration display_path="display_applications">
+    <datatype extension="cps" type="galaxy.datatypes.binary:Binary" subclass="True" display_in_upload="true" />
     <datatype extension="pepxml" type="galaxy.datatypes.proteomics:PepXml" mimetype="application/xml" display_in_upload="true">
       <display file="proteomics/PepXml.xml" />
     </datatype>
@@ -42,7 +43,6 @@
     <datatype extension="hlf" type="galaxy.datatypes.proteomics:XHunterAslFormat" mimetype="application/octet-stream" display_in_upload="true" />
   </registration>
   <sniffers>
-    <sniffer type="galaxy.datatypes.proteomics:ProtGff"/>
     <sniffer type="galaxy.datatypes.proteomics:MzML"/>
     <sniffer type="galaxy.datatypes.proteomics:PepXml"/>
     <sniffer type="galaxy.datatypes.proteomics:Mgf"/>
