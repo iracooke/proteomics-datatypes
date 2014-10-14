@@ -4,9 +4,7 @@
     <datatype_file name="proteomics.py"/>
   </datatype_files>
   <registration display_path="display_applications">
-    <datatype extension="prot_gff" type="galaxy.datatypes.proteomics:ProtGff" mimetype="application/xml" display_in_upload="true">
-       <display file="proteomics/ProtGff.xml" />
-    </datatype>	
+    <datatype extension="cps" type="galaxy.datatypes.binary:Binary" subclass="True" display_in_upload="true" />
     <datatype extension="pepxml" type="galaxy.datatypes.proteomics:PepXml" mimetype="application/xml" display_in_upload="true">
       <display file="proteomics/PepXml.xml" />
     </datatype>
@@ -43,14 +41,15 @@
     <datatype extension="featurexml" type="galaxy.datatypes.proteomics:FeatureXML" mimetype="application/xml" display_in_upload="true" />
     <datatype extension="consensusxml" type="galaxy.datatypes.proteomics:ConsensusXML" mimetype="application/xml" display_in_upload="true" />
     <datatype extension="idxml" type="galaxy.datatypes.proteomics:IdXML" mimetype="application/xml" display_in_upload="true" />
+    <datatype extension="tandem" type="galaxy.datatypes.proteomics:TandemXML" mimetype="application/xml" display_in_upload="true" />
     <datatype extension="raw" type="galaxy.datatypes.proteomics:RAW" mimetype="application/octet-stream" display_in_upload="true" />
     <datatype extension="msp" type="galaxy.datatypes.proteomics:Msp" display_in_upload="true" />
     <datatype extension="ms2" type="galaxy.datatypes.proteomics:Ms2" display_in_upload="true" />
     <datatype extension="hlf" type="galaxy.datatypes.proteomics:XHunterAslFormat" mimetype="application/octet-stream" display_in_upload="true" />
   </registration>
   <sniffers>
-    <sniffer type="galaxy.datatypes.proteomics:ProtGff"/>
     <sniffer type="galaxy.datatypes.proteomics:MzML"/>
+    <sniffer type="galaxy.datatypes.proteomics:TandemXML"/>
     <sniffer type="galaxy.datatypes.proteomics:PepXml"/>
     <sniffer type="galaxy.datatypes.proteomics:Mgf"/>
     <sniffer type="galaxy.datatypes.proteomics:ProtXML"/>
