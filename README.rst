@@ -35,7 +35,8 @@ ConsensusXML          consensusxml           False       OpenMS_
 IdXML                 idxml                  False       OpenMS_
 TandemXML_            tandem                 False       XTandem output
 RAW                   raw                    False       Raw Mass Spec Data
-Msp                   msp                    False       Spectral Library
+Msp_                  msp                    True        Spectral Library
+SPLib_                splib 				 True		 Spectral Library
 Ms2                   ms2                    False       MS/MS Spectra
 XHunterAslFormat      hlf                    False       Spectral Library
 ================      =====================  =======     ====================================
@@ -53,6 +54,8 @@ XHunterAslFormat      hlf                    False       Spectral Library
 .. _MzIdentML: http://www.psidev.info/mzidentml
 .. _TraML: http://www.psidev.info/traml
 .. _TandemXML: http://www.thegpm.org/docs/X_series_output_form.pdf
+.. _Msp: http://chemdata.nist.gov/mass-spc/ftp/mass-spc/PepLib.pdf
+.. _SPLib: http://tools.proteomecenter.org/wiki/index.php?title=Software:SpectraST#Developer.27s_Guide
 
 Visualization
 -------------

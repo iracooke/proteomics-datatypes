@@ -1,0 +1,6 @@
+categories: !!python/tuple [Proteomics]
+description: !!python/unicode 'Proteomics Dataypes'
+homepage_url: !!python/unicode 'https://github.com/iracooke/proteomics-datatypes'
+name: !!python/unicode 'proteomics_datatypes'
+owner: !!python/unicode 'iracooke'
+type: unrestricted
