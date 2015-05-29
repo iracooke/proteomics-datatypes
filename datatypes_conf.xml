@@ -47,6 +47,7 @@
     <datatype extension="ms2" type="galaxy.datatypes.proteomics:Ms2" display_in_upload="true" />
     <datatype extension="hlf" type="galaxy.datatypes.proteomics:XHunterAslFormat" mimetype="application/octet-stream" display_in_upload="true" />
     <datatype extension="splib" type="galaxy.datatypes.proteomics:SPLib" display_in_upload="true" />
+    <datatype extension="sf3" type="galaxy.datatypes.proteomics:Sf3" display_in_upload="true" />
   </registration>
   <sniffers>
     <sniffer type="galaxy.datatypes.proteomics:MzML"/>
