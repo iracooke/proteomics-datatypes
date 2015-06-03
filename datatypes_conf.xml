@@ -49,6 +49,9 @@
     <datatype extension="splib" type="galaxy.datatypes.proteomics:SPLibNoIndex" display_in_upload="true" />
     <datatype extension="splib" type="galaxy.datatypes.proteomics:SPLib" display_in_upload="true" />
     <datatype extension="sf3" type="galaxy.datatypes.proteomics:Sf3" display_in_upload="true" />
+    <datatype extension="searchgui_zip" type="galaxy.datatypes.binary:Binary" mimetype="application/octet-stream" subclass="True" />
+    <datatype extension="peptideshaker_zip" type="galaxy.datatypes.binary:Binary" mimetype="application/octet-stream" subclass="True" />
+
   </registration>
   <sniffers>
     <sniffer type="galaxy.datatypes.proteomics:MzML"/>
