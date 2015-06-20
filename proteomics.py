@@ -210,7 +210,7 @@ class Mgf(Text):
 
         with open(filename) as handle:
             for i, line in enumerate(handle):
-                line = line.rstrip('\n\r')
+                line = line.rstrip()
                 if line == mgf_begin_ions:
                     return True
                 if i > max_lines:
@@ -236,7 +236,7 @@ class MascotDat(Text):
 
         with open(filename) as handle:
             for i, line in enumerate(handle):
-                line = line.rstrip('\n\r')
+                line = line.rstrip()
                 if line == mime_version:
                     return True
                 if i > max_lines:
@@ -374,6 +374,7 @@ class Ms2(Text):
                     header_lines.append(line)
                 else:
                     break
+
         for header_field in ['CreationDate', 'Extractor', 'ExtractorVersion', 'ExtractorOptions']:
             found_header = False
             for header_line in header_lines:
