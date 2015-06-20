@@ -131,6 +131,7 @@ class PepXml(ProteomicsXml):
 class MzML(ProteomicsXml):
     """mzML data"""
     file_ext = "mzml"
+    edam_format = "format_3244"
     blurb = 'mzML Mass Spectrometry data'
     root = "(mzML|indexedmzML)"
 
@@ -151,18 +152,21 @@ class MzXML(ProteomicsXml):
 
 class MzIdentML(ProteomicsXml):
     file_ext = "mzid"
+    edam_format = "format_3247"
     blurb = "XML identified peptides and proteins."
     root = "MzIdentML"
 
 
 class TraML(ProteomicsXml):
     file_ext = "traml"
+    edam_format = "format_3246"
     blurb = "TraML transition list"
     root = "TraML"
 
 
 class MzQuantML(ProteomicsXml):
     file_ext = "mzq"
+    edam_format = "format_3248"
     blurb = "XML quantification data"
     root = "MzQuantML"
 
