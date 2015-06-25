@@ -3,6 +3,19 @@ Proteomics Datatypes
 
 Support for a proteomics and mass spectrometry datatypes for Galaxy_
 
+
+This package will soon be deprecated
+------------------------------------
+
+In the near future the datatypes in this package will be merged
+into core galaxy.  Any packages that depend on these datatypes should
+remove that dependency.
+
+**Migration notes**
+
+- The RAW class is changing to ThermoRAW
+- Display applications in this package are no longer supported.
+
 .. _Galaxy: http://galaxyproject.org/
 
 
@@ -24,7 +37,7 @@ ProtXmlReport         protxml.tsv            False       Tabular ProtXML
 MascotDat             mascotdat              False       Raw Mascot Search Results
 MzML_                 mzml                   True        Raw Mass Spec Data
 Mgf                   mgf                    True        MS/MS Spectra
-IdpDB                 idpdb                  False       
+IdpDB                 idpdb                  False
 Wiff                  wiff                   False       Raw Mass Spec Data
 MzXML                 mzxml                  True        Raw Mass Spec Data
 MzQuantML_            mzq                    True        HUPO standard for quant data
@@ -60,7 +73,6 @@ XHunterAslFormat      hlf                    False       Spectral Library
 Visualization
 -------------
 
-This package also installs display applications for mzML, PepXML and ProtXML formats. These are designed to work with the protviz_ web application.  Configuring this application requires a fair number of extra steps though.  See the protviz_ documentation for more info.  
+This package also installs display applications for mzML, PepXML and ProtXML formats. These are designed to work with the protviz_ web application.  Configuring this application requires a fair number of extra steps though.  See the protviz_ documentation for more info.
 
 .. _protviz: https://bitbucket.org/Andrew_Brock/proteomics-visualise
-
