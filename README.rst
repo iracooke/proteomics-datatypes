@@ -4,11 +4,10 @@ Proteomics Datatypes
 Support for a proteomics and mass spectrometry datatypes for Galaxy_
 
 
-This package will soon be deprecated
-------------------------------------
+This package is deprecated
+--------------------------
 
-In the near future the datatypes in this package will be merged
-into core galaxy.  Any packages that depend on these datatypes should
+The datatypes in this package are now part of core galaxy.  Any packages that depend on these datatypes should
 remove that dependency.
 
 **Migration notes**
